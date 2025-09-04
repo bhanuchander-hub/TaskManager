@@ -1,0 +1,248 @@
+import styled from 'styled-components';
+
+const Container = styled.div`
+  padding: 20px;
+  background: #f9fafb;
+  min-height: 100vh;
+`;
+
+const Header = styled.header`
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+`;
+
+const Section = styled.section`
+  margin-bottom: 20px;
+`;
+
+const Card = styled.div`
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+  margin-bottom: 20px;
+`;
+
+const Dashboard = () => {
+  // Mock data for dashboard
+  const runningTask = { count: 65, progress: 45 };
+  const mentors = [
+    { name: 'Curious George', tasks: 40, rating: 4.7, reviews: 350 },
+    { name: 'Abraham Lincoln', tasks: 32, rating: 4.9, reviews: 510 }
+  ];
+  const upcomingTasks = [
+    { title: 'Creating Mobile App Design', progress: 75, timeLeft: '3 Days Left', image: 'https://placeholder.co/200x150' },
+    { title: 'Creating Perfect Website', progress: 85, timeLeft: '4 Days Left', image: 'https://placeholder.co/200x150' }
+  ];
+
+  return (
+    <Container>
+      <Header>Dashboard</Header>
+      <Card>
+        <h3>Running Task</h3>
+        <p>{runningTask.count} Tasks</p>
+        <p>Progress: {runningTask.progress}%</p>
+      </Card>
+      <Card>
+        <h3>Monthly Mentors</h3>
+        {mentors.map((mentor, idx) => (
+          <div key={idx}>
+            <p>{mentor.name} - {mentor.tasks} Tasks - Rating: {mentor.rating} ({mentor.reviews} Reviews)</p>
+          </div>
+        ))}
+      </Card>
+      <Card>
+        <h3>Upcoming Tasks</h3>
+        {upcomingTasks.map((task, idx) => (
+          <div key={idx}>
+            <p>{task.title} - Progress: {task.progress}% - {task.timeLeft}</p>
+          </div>
+        ))}
+      </Card>
+    </Container>
+  );
+};
+
+export default Dashboard;
+=======
+import React from 'react';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  padding: 30px 40px;
+  background: #f9fafb;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+`;
+
+const Header = styled.header`
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #111827;
+`;
+
+const Section = styled.section`
+  margin-bottom: 40px;
+`;
+
+const Card = styled.div`
+  background: #fff;
+  border-radius: 16px;
+  padding: 25px 30px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+  margin-bottom: 30px;
+`;
+
+const RunningTaskCard = styled(Card)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const TaskInfo = styled.div`
+  font-size: 18px;
+  font-weight: 600;
+  color: #374151;
+`;
+
+const ProgressBarContainer = styled.div`
+  background-color: #e0e7ff;
+  border-radius: 12px;
+  width: 200px;
+  height: 12px;
+  overflow: hidden;
+  margin-top: 8px;
+`;
+
+const ProgressBar = styled.div`
+  height: 100%;
+  background-color: #6366f1;
+  width: ${props => props.progress}%;
+  transition: width 0.5s ease-in-out;
+`;
+
+const MentorsList = styled.div`
+  display: flex;
+  gap: 20px;
+`;
+
+const MentorCard = styled.div`
+  background: #f3f4f6;
+  border-radius: 12px;
+  padding: 15px 20px;
+  flex: 1;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.05);
+`;
+
+const MentorName = styled.h4`
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #1f2937;
+`;
+
+const MentorDetails = styled.p`
+  font-size: 14px;
+  color: #6b7280;
+`;
+
+const UpcomingTasksList = styled.div`
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+`;
+
+const TaskCard = styled.div`
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+  min-width: 220px;
+  padding: 15px;
+  flex-shrink: 0;
+`;
+
+const TaskImage = styled.img`
+  width: 100%;
+  height: 120px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 12px;
+`;
+
+const TaskTitle = styled.h5`
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #111827;
+`;
+
+const TaskProgress = styled.div`
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 6px;
+`;
+
+const TaskTimeLeft = styled.div`
+  font-size: 12px;
+  color: #9ca3af;
+`;
+
+const Dashboard = () => {
+  // Mock data for dashboard
+  const runningTask = { count: 65, progress: 45 };
+  const mentors = [
+    { name: 'Curious George', tasks: 40, rating: 4.7, reviews: 350 },
+    { name: 'Abraham Lincoln', tasks: 32, rating: 4.9, reviews: 510 }
+  ];
+  const upcomingTasks = [
+    { title: 'Creating Mobile App Design', progress: 75, timeLeft: '3 Days Left', image: 'https://via.placeholder.com/220x120' },
+    { title: 'Creating Perfect Website', progress: 85, timeLeft: '4 Days Left', image: 'https://via.placeholder.com/220x120' }
+  ];
+
+  return (
+    <Container>
+      <Header>Dashboard</Header>
+
+      <RunningTaskCard>
+        <TaskInfo>
+          <h3>Running Task</h3>
+          <p>{runningTask.count} Tasks</p>
+          <ProgressBarContainer>
+            <ProgressBar progress={runningTask.progress} />
+          </ProgressBarContainer>
+          <p>Progress: {runningTask.progress}%</p>
+        </TaskInfo>
+      </RunningTaskCard>
+
+      <Section>
+        <h3>Monthly Mentors</h3>
+        <MentorsList>
+          {mentors.map((mentor, idx) => (
+            <MentorCard key={idx}>
+              <MentorName>{mentor.name}</MentorName>
+              <MentorDetails>{mentor.tasks} Tasks - Rating: {mentor.rating} ({mentor.reviews} Reviews)</MentorDetails>
+            </MentorCard>
+          ))}
+        </MentorsList>
+      </Section>
+
+      <Section>
+        <h3>Upcoming Tasks</h3>
+        <UpcomingTasksList>
+          {upcomingTasks.map((task, idx) => (
+            <TaskCard key={idx}>
+              <TaskImage src={task.image} alt={task.title} />
+              <TaskTitle>{task.title}</TaskTitle>
+              <TaskProgress>Progress: {task.progress}%</TaskProgress>
+              <TaskTimeLeft>{task.timeLeft}</TaskTimeLeft>
+            </TaskCard>
+          ))}
+        </UpcomingTasksList>
+      </Section>
+    </Container>
+  );
+};
+
+export default Dashboard;
