@@ -1,17 +1,14 @@
-# Node dependencies
-node_modules/
-frontend/node_modules/
-backend/node_modules/
+
 
 # Build outputs
-frontend/build/
-frontend/dist/
+frontend1/build/
+frontend1/dist/
 backend/dist/
 coverage/
 
 # Environment files
 .env
-frontend/.env
+frontend1/.env
 backend/.env
 
 # Logs
