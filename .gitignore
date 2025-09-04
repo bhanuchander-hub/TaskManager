@@ -1,14 +1,14 @@
 
 
 # Build outputs
-frontend1/build/
-frontend1/dist/
+dnx_frontend/build/
+dnx_frontend/dist/
 backend/dist/
 coverage/
 
 # Environment files
 .env
-frontend1/.env
+dnx_frontend/.env
 backend/.env
 
 # Logs
